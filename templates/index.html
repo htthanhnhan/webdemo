@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>School</title>
+</head>
+<body>
+
+    <table border="1px" style="font-size: 20px" cellpadding="2px">
+        <thead>
+        <tr>
+            <th>
+                Họ và tên
+            </th>
+            <th>
+                Tuổi
+            </th>
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for s in list %}
+        <tr>
+            <td>
+                {{s.name}}
+            </td>
+            <td>
+                {{s.age}}
+            </td>
+            <td>
+                <a href="/update/{{s.id}}">Update</a>
+            </td>
+            <td>
+                <form action="" method="post" style="font-size: 20px">
+                    <input type="number" hidden name="id" value="{{s.id}}" autocomplete="off">
+                    <input type="submit" name="action" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<a href="/create">Create</a>
+
+</body>
+</html>
